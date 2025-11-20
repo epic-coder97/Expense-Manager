@@ -51,6 +51,24 @@ export const csvHelper = {
     return `Date,Type,Category,Sub-category,Amount,Notes\n31/01/2024,Debit,Expenses,Groceries,1500,Monthly Dmart run`;
   },
 
+  // Generate Rich Sample Data for Testing
+  generateSampleData: (): string => {
+    const header = `Date,Type,Category,Sub-category,Amount,Notes`;
+    const rows = [
+      `01/02/2024,Credit,Income,Monthly Salary,50000,February Salary credited`,
+      `02/02/2024,Debit,Expenses,Rent,15000,Monthly House Rent`,
+      `03/02/2024,Debit,Expenses,Groceries,2500,Weekly vegetables and fruits`,
+      `05/02/2024,Debit,Expenses,Fuel,2000,Full tank petrol`,
+      `10/02/2024,Debit,Expenses,Restaurants,1800,Dinner with family`,
+      `12/02/2024,Debit,Expenses,Subscriptions,499,Netflix & Spotify`,
+      `15/02/2024,Debit,Investment,Mutual Funds SIP,5000,Monthly SIP deduction`,
+      `18/02/2024,Credit,Income,Freelance,8000,Consulting project payment`,
+      `20/02/2024,Debit,Expenses,Medical,1200,Dental checkup`,
+      `25/02/2024,Debit,Expenses,Movies,850,Weekend movie tickets`
+    ];
+    return [header, ...rows].join('\n');
+  },
+
   // Export Transactions to CSV
   exportToCSV: (transactions: Transaction[], categories: Category[]): string => {
     const header = ['Date', 'Type', 'Category', 'Sub-category', 'Amount', 'Balance', 'Notes'];

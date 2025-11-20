@@ -23,6 +23,11 @@ export const Settings: React.FC = () => {
     downloadFile(csv, 'ExpenseTracker_Template.csv', 'text/csv');
   };
 
+  const handleDownloadSample = () => {
+    const csv = csvHelper.generateSampleData();
+    downloadFile(csv, 'ExpenseTracker_Sample_Data.csv', 'text/csv');
+  };
+
   const handleExportCSV = () => {
     const txns = storageService.getTransactions();
     const cats = storageService.getCategories();
@@ -173,10 +178,15 @@ export const Settings: React.FC = () => {
 
              <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1">
-                  <p className="text-sm text-slate-600 mb-3">1. Download the template to format your data correctly.</p>
-                  <Button variant="secondary" className="w-full sm:w-auto flex items-center gap-2" onClick={handleDownloadTemplate}>
-                    <Download className="w-4 h-4" /> Download Template
-                  </Button>
+                  <p className="text-sm text-slate-600 mb-3">1. Download a template or sample data.</p>
+                  <div className="flex gap-2">
+                    <Button variant="secondary" className="flex-1 flex items-center justify-center gap-2 text-xs sm:text-sm" onClick={handleDownloadTemplate}>
+                      <Download className="w-4 h-4" /> Template
+                    </Button>
+                    <Button variant="secondary" className="flex-1 flex items-center justify-center gap-2 text-xs sm:text-sm" onClick={handleDownloadSample}>
+                      <FileText className="w-4 h-4" /> Sample Data
+                    </Button>
+                  </div>
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-slate-600 mb-3">2. Upload your filled CSV file.</p>
