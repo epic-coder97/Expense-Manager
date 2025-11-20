@@ -1,0 +1,5 @@
+{
+  "name": "ExpenseTracker",
+  "description": "A personal expense tracker with secure local storage and setup wizard.",
+  "requestFramePermissions": []
+}
